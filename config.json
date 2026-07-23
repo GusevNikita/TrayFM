@@ -1,74 +1,51 @@
 {
-    "volume_step": 5,
-    "volume_min": 0,
-    "volume_max": 100,
-    "volume_default": 50,
-    "check_timeout": 10,
-    "gifs_path": "gifs",
-    "gifs_enabled": true,
-    "vhs_enabled": true,
-    "logs_path": "logs",
-    "logs_enabled": false,
-    "theme": {
-        "bg": "#222222",
-        "border": "#444444",
-        "progress_bg": "#333333",
-        "progress_fill": "#ffffff",
-        "text_status": {"family": "Segoe UI", "size": 20, "color": "#ffffff"},
-        "text_station": {"family": "Segoe UI", "size": 12, "weight": "bold", "color": "#f0f0f0"},
-        "text_category": {"family": "Segoe UI", "size": 10, "color": "#cccccc"},
-        "text_info": {"family": "Segoe UI", "size": 9, "color": "#aaaaaa"},
-        "gradient_base": "#222222",
-        "gradient_highlight": "#5c5c5c",
-        "gradient_divisor": 4,
-        "padding": {
-            "padx": 14,
-            "pady_top": 10,
-            "pady_gap": 30,
-            "pady_station": 4,
-            "pady_cat": 2,
-            "pady_info": 4,
-            "pady_progress": 6,
-            "pady_bottom": 10
+    "audio": {
+        "step": 5,
+        "min": 0,
+        "max": 100,
+        "default": 50,
+        "check_timeout": 10
+    },
+    "sfx": {
+        "path": "sfx",
+        "vol_min": 0,
+        "vol_max": 150
+    },
+    "overlay": {
+        "timeout": 3,
+        "corner": "bottom-right",
+        "offset_x": 20,
+        "offset_y": 50,
+        "gifs_path": "gifs",
+        "gifs_enabled": true,
+        "vhs_enabled": true,
+        "theme": {
+            "bg": "#222222",
+            "border": "#444444",
+            "progress_bg": "#333333",
+            "progress_fill": "#ffffff",
+            "text_status": {"family": "Segoe UI", "size": 20, "color": "#ffffff"},
+            "text_station": {"family": "Segoe UI", "size": 12, "weight": "bold", "color": "#f0f0f0"},
+            "text_category": {"family": "Segoe UI", "size": 10, "color": "#cccccc"},
+            "text_info": {"family": "Segoe UI", "size": 9, "color": "#aaaaaa"},
+            "gradient_base": "#222222",
+            "gradient_highlight": "#5c5c5c",
+            "gradient_divisor": 4,
+            "padding": {
+                "padx": 14,
+                "pady_top": 10,
+                "pady_gap": 30,
+                "pady_station": 4,
+                "pady_cat": 2,
+                "pady_info": 4,
+                "pady_progress": 6,
+                "pady_bottom": 10
+            }
         }
     },
-    "overlay_corner": "bottom-right",
-    "overlay_offset_x": 20,
-    "overlay_offset_y": 50,
-    "proxy": "",
-    "categories": {
-        "Lo-Fi": [
-            {"name": "Laut.fm", "url": "https://stream.laut.fm/lofi"},
-            {"name": "0nlineradio", "url": "https://0nlineradio.radioho.st/0r-lo-fi?ref=radio-browser26"},
-            {"name": "bigFM Focus", "url": "https://stream.bigfm.de/lofifocus/mp3-128/radiobrowser"},
-            {"name": "Zeno.FM", "url": "https://stream.zeno.fm/tabzverz0fctv"},
-            {"name": "FluxFM Chillhop", "url": "https://streams.fluxfm.de/Chillhop/mp3-320/streams.fluxfm.de/"},
-            {"name": "Hotmixradio", "url": "https://streaming.hotmixradio.com/hotmix-lofi-en-mp3"},
-            {"name": "101.ru", "url": "https://pub0202.101.ru:8443/stream/pro/aac/64/358?"},
-            {"name": "Cafe", "url": "https://radio.loficafe.net/listen/chilling/radio.mp3"},
-            {"name": "radio.ru", "url": "https://live.lofiradio.ru/lofi_mp3_128"},
-            {"name": "Asura", "url": "https://a5.asurahosting.com:8150/radio.mp3"},
-            {"name": "ReyFM", "url": "https://listen.reyfm.de/lofi_64kbps.mp3"}
-        ],
-        "Ambient": [
-            {"name": "Art Sound", "url": "https://ambientartsound.skydesignltd.com:8000/radio.mp3?refresh=1652750904243"},
-            {"name": "House", "url": "http://79.120.12.130:8000/ambienthouse"},
-            {"name": "laut.fm", "url": "https://stream.laut.fm/ambient"},
-            {"name": "Ambient FM", "url": "https://ambient.fm/live/"},
-            {"name": "Dark", "url": "http://79.120.39.202:8000/darkambient"},
-            {"name": "Radio Art", "url": "http://air.radioart.com/fAmbient.mp3"},
-            {"name": "Dark m00", "url": "https://radio.m00.su:8000/darkambient.mp3"},
-            {"name": "Radioking", "url": "https://listen.radioking.com/radio/504205/stream/561655"},
-            {"name": "The Indie Beat", "url": "https://azura.theindiebeat.fm/listen/the_indie_beat_radio_-_ambient/radio.mp3"}
-        ],
-        "Calm": [
-            {"name": "Radio", "url": "https://streamer.radio.co/sb748f24ad/listen"},
-            {"name": "Zeno", "url": "https://stream.zeno.fm/yvcddifycietv"},
-            {"name": "Radio 287", "url": "http://streams.calmradio.com/api/287/128/stream/"},
-            {"name": "Classic FM", "url": "https://media-ice.musicradio.com/ClassicFMCalmMP3"},
-            {"name": "FM Vit Relax", "url": "https://radio.webicdp.com/listen/fmvfitradiorelax/radio.mp3"},
-            {"name": "Sonica", "url": "https://ibizasonica.streaming-pro.com:8014/sonicalm"},
-            {"name": "101.ru", "url": "https://pub0201.101.ru/stream/trust/mp3/128/24?"}
-        ]
-    }
+    "logging": {
+        "path": "logs",
+        "enabled": false
+    },
+    "proxy": ""
 }

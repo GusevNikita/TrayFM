@@ -205,13 +205,14 @@ class Overlay:
         pady_bottom = p.get("pady_bottom", 10)
 
         title = msg.get("title", "")
-        show_status = title == "Paused"
-        show_volume = title == "Volume"
+        show_status = title in ("Paused", "SFX")
+        show_volume = title in ("Volume", "Radio Volume")
         show_other = not show_status and not show_volume
+        no_gif = title in ("SFX Volume", "Volume Mode", "SFX")
 
         if show_status:
             self._canvas.itemconfigure(self._status_item, text=title.upper())
-        show_gif = self._gifs_enabled and (show_volume or show_other)
+        show_gif = self._gifs_enabled and (show_volume or show_other) and not no_gif
 
         station = msg.get("station", "")
         category = msg.get("category", "")
@@ -248,11 +249,11 @@ class Overlay:
             if show_status:
                 self._canvas.coords(self._status_item, cx, cy + 16)
                 self._canvas.itemconfigure(self._status_item, state="normal")
-                cy += 28
+                cy += 40
             else:
                 self._canvas.itemconfigure(self._status_item, state="hidden")
 
-        if show_status:
+        if title == "Paused":
             for item in [self._station_item, self._category_item, self._info_item]:
                 self._canvas.itemconfigure(item, state="hidden")
         else:

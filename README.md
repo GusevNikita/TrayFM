@@ -5,10 +5,10 @@
 ## English
 
 ### Description
-A lightweight internet radio player for Windows that runs in the system tray. All stations and categories are defined in a single JSON config — you can add, remove, or rearrange any category or station without touching the code.
+A lightweight internet radio player for Windows that runs in the system tray. Stations are defined in `stations.json` and app settings in `config.json` — you can add, remove, or rearrange any category or station without touching the code.
 
 ### Features
-- Fully customizable categories and stations via `config.json`
+- Fully customizable stations via `stations.json`
 - Categories: create any genre or grouping (Lo-Fi, Ambient, Calm, News, Rock, etc.)
 - Unlimited stations per category
 - System tray icon with context menu
@@ -21,33 +21,36 @@ A lightweight internet radio player for Windows that runs in the system tray. Al
 - VHS-style overlay effect (optional)
 - Customizable theme (colors, fonts, padding, gradient)
 
-### Configuration (`config.json`)
-All stations and settings are in `config.json` next to the executable:
+### Configuration
+
+#### `config.json` — App settings
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| `categories` | object | — | List of categories, each with an array of `{name, url}` stations |
-| `volume_step` | int | 5 | Volume change step |
-| `volume_min` | int | 0 | Minimum volume |
-| `volume_max` | int | 100 | Maximum volume |
-| `volume_default` | int | 50 | Startup volume |
-| `check_timeout` | int | 10 | Connection check timeout (seconds) |
-| `gifs_path` | str | `"gifs"` | GIFs folder path |
-| `gifs_enabled` | bool | true | Show GIF animations in overlay |
-| `vhs_enabled` | bool | true | VHS chromatic aberration effect on GIFs |
-| `logs_path` | str | `"logs"` | Logs folder path |
-| `logs_enabled` | bool | true | Enable file logging |
-| `theme` | object | — | Visual theme (colors, fonts, padding, gradient) |
-| `overlay_corner` | str | `"bottom-right"` | Overlay position |
-| `overlay_offset_x` | int | 20 | Horizontal offset from screen edge (px) |
-| `overlay_offset_y` | int | 20 | Vertical offset from screen edge (px) |
+| `audio.step` | int | 5 | Volume change step |
+| `audio.min` | int | 0 | Minimum volume |
+| `audio.max` | int | 100 | Maximum volume |
+| `audio.default` | int | 50 | Startup volume |
+| `audio.check_timeout` | int | 10 | Connection check timeout (seconds) |
+| `overlay.timeout` | int | 3 | Overlay display time (seconds) |
+| `overlay.corner` | str | `"bottom-right"` | Overlay position |
+| `overlay.offset_x` | int | 20 | Horizontal offset from screen edge (px) |
+| `overlay.offset_y` | int | 50 | Vertical offset from screen edge (px) |
+| `overlay.gifs_path` | str | `"gifs"` | GIFs folder path |
+| `overlay.gifs_enabled` | bool | true | Show GIF animations in overlay |
+| `overlay.vhs_enabled` | bool | true | VHS chromatic aberration effect on GIFs |
+| `overlay.theme` | object | — | Visual theme (colors, fonts, padding, gradient) |
+| `sfx.path` | str | `"sfx"` | Sound effects folder path |
+| `sfx.vol_min` | int | 0 | Minimum SFX volume |
+| `sfx.vol_max` | int | 150 | Maximum SFX volume |
+| `logging.path` | str | `"logs"` | Logs folder path |
+| `logging.enabled` | bool | false | Enable file logging |
 | `proxy` | str | — | Proxy URL (e.g. `socks5://127.0.0.1:1080`). Leave empty to disable. |
 
-### Customizing Categories & Stations
-Edit `categories` in `config.json`:
+#### `stations.json` — Radio stations
 
 ```json
-"categories": {
+{
     "Lo-Fi": [
         {"name": "My Station", "url": "https://stream-url"},
         {"name": "Another Station", "url": "https://another-url"}
@@ -81,7 +84,7 @@ You can create as many categories as you want, each with any number of stations.
    ```
    pip install -r requirements.txt
    ```
-3. Edit `config.json` to add your stations
+3. Edit `stations.json` to add your stations
 4. Run:
    ```
    python trayfm.py
@@ -96,11 +99,13 @@ You can create as many categories as you want, each with any number of stations.
 |------|---------|
 | `trayfm.py` | Main application |
 | `overlay.py` | Overlay notification window |
-| `config.json` | Station list and all settings |
+| `config.json` | App settings (audio, overlay, sfx, logging, proxy) |
+| `stations.json` | Radio stations grouped by category |
 | `state.json` | Last played station, volume (auto-generated, gitignored) |
 | `install_autorun.py` | Add to Windows startup |
 | `remove_autorun.py` | Remove from Windows startup |
 | `gifs/` | GIF animations for overlay |
+| `sfx/` | Sound effects (rain, vinyl, etc.) |
 | `run_trayfm_background.vbs` | Silent launcher for autorun |
 | `run_trayfm.bat` | Debug mode launcher |
 | `start_trayfm.bat` | Minimal window launcher |
@@ -110,10 +115,10 @@ You can create as many categories as you want, each with any number of stations.
 ## Русский
 
 ### Описание
-Лёгкий интернет-радио плеер для Windows, работающий в системном трее. Все станции и категории задаются в одном JSON-файле — можно добавлять, удалять или переставлять категории и станции без изменения кода.
+Лёгкий интернет-радио плеер для Windows, работающий в системном трее. Станции задаются в `stations.json`, настройки приложения — в `config.json`. Можно добавлять, удалять или переставлять категории и станции без изменения кода.
 
 ### Возможности
-- Полностью настраиваемые категории и станции через `config.json`
+- Полностью настраиваемые станции через `stations.json`
 - Категории: любые жанры и группы (Lo-Fi, Ambient, Calm, News, Rock и т.д.)
 - Неограниченное количество станций в категории
 - Иконка в системном трее с контекстным меню
@@ -126,33 +131,36 @@ You can create as many categories as you want, each with any number of stations.
 - VHS-эффект на GIF в оверлее (опционально)
 - Настраиваемая тема (цвета, шрифты, отступы, градиент)
 
-### Настройка (`config.json`)
-Все станции и настройки в `config.json` рядом с программой:
+### Настройка
+
+#### `config.json` — Настройки приложения
 
 | Параметр | Тип | По умолч. | Описание |
 |----------|-----|-----------|----------|
-| `categories` | object | — | Список категорий, каждая с массивом станций `{name, url}` |
-| `volume_step` | int | 5 | Шаг изменения громкости |
-| `volume_min` | int | 0 | Мин. громкость |
-| `volume_max` | int | 100 | Макс. громкость |
-| `volume_default` | int | 50 | Громкость при запуске |
-| `check_timeout` | int | 10 | Таймаут проверки подключения (сек.) |
-| `gifs_path` | str | `"gifs"` | Папка с GIF-файлами |
-| `gifs_enabled` | bool | true | Показывать GIF в оверлее |
-| `vhs_enabled` | bool | true | Эффект хроматической аберрации на GIF |
-| `logs_path` | str | `"logs"` | Папка для логов |
-| `logs_enabled` | bool | true | Включить логирование в файл |
-| `theme` | object | — | Визуальная тема (цвета, шрифты, отступы, градиент) |
-| `overlay_corner` | str | `"bottom-right"` | Угол экрана для оверлея |
-| `overlay_offset_x` | int | 20 | Отступ от края экрана по горизонтали (px) |
-| `overlay_offset_y` | int | 20 | Отступ от края экрана по вертикали (px) |
+| `audio.step` | int | 5 | Шаг изменения громкости |
+| `audio.min` | int | 0 | Мин. громкость |
+| `audio.max` | int | 100 | Макс. громкость |
+| `audio.default` | int | 50 | Громкость при запуске |
+| `audio.check_timeout` | int | 10 | Таймаут проверки подключения (сек.) |
+| `overlay.timeout` | int | 3 | Время отображения оверлея (сек.) |
+| `overlay.corner` | str | `"bottom-right"` | Угол экрана для оверлея |
+| `overlay.offset_x` | int | 20 | Отступ от края экрана по горизонтали (px) |
+| `overlay.offset_y` | int | 50 | Отступ от края экрана по вертикали (px) |
+| `overlay.gifs_path` | str | `"gifs"` | Папка с GIF-файлами |
+| `overlay.gifs_enabled` | bool | true | Показывать GIF в оверлее |
+| `overlay.vhs_enabled` | bool | true | Эффект хроматической аберрации на GIF |
+| `overlay.theme` | object | — | Визуальная тема (цвета, шрифты, отступы, градиент) |
+| `sfx.path` | str | `"sfx"` | Папка со звуковыми эффектами |
+| `sfx.vol_min` | int | 0 | Мин. громкость SFX |
+| `sfx.vol_max` | int | 150 | Макс. громкость SFX |
+| `logging.path` | str | `"logs"` | Папка для логов |
+| `logging.enabled` | bool | false | Включить логирование в файл |
 | `proxy` | str | — | URL прокси (напр. `socks5://127.0.0.1:1080`). Оставьте пустым для отключения. |
 
-### Добавление категорий и станций
-Отредактируйте `categories` в `config.json`:
+#### `stations.json` — Радиостанции
 
 ```json
-"categories": {
+{
     "Lo-Fi": [
         {"name": "Моя станция", "url": "https://stream-url"},
         {"name": "Ещё станция", "url": "https://another-url"}
@@ -185,7 +193,7 @@ You can create as many categories as you want, each with any number of stations.
    ```
    pip install -r requirements.txt
    ```
-3. Отредактируйте `config.json` — добавьте свои станции
+3. Отредактируйте `stations.json` — добавьте свои станции
 4. Запустите:
    ```
    python trayfm.py
@@ -200,11 +208,13 @@ You can create as many categories as you want, each with any number of stations.
 |------|------------|
 | `trayfm.py` | Основное приложение |
 | `overlay.py` | Окно оверлейных уведомлений |
-| `config.json` | Список станций и все настройки |
+| `config.json` | Настройки приложения (аудио, оверлей, sfx, логирование, прокси) |
+| `stations.json` | Радиостанции, сгруппированные по категориям |
 | `state.json` | Последняя станция, громкость (авто, gitignored) |
 | `install_autorun.py` | Добавить в автозагрузку Windows |
 | `remove_autorun.py` | Убрать из автозагрузки Windows |
 | `gifs/` | GIF-анимации для оверлея |
+| `sfx/` | Звуковые эффекты (дождь, винил и т.д.) |
 | `run_trayfm_background.vbs` | Тихий запуск для автозагрузки |
 | `run_trayfm.bat` | Запуск в режиме отладки |
 | `start_trayfm.bat` | Запуск с минимальным окном |

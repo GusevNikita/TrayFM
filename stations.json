@@ -1,0 +1,35 @@
+{
+    "Lo-Fi": [
+        {"name": "Laut.fm", "url": "https://stream.laut.fm/lofi"},
+        {"name": "0nlineradio", "url": "https://0nlineradio.radioho.st/0r-lo-fi?ref=radio-browser26"},
+        {"name": "bigFM Focus", "url": "https://stream.bigfm.de/lofifocus/mp3-128/radiobrowser"},
+        {"name": "Zeno.FM", "url": "https://stream.zeno.fm/tabzverz0fctv"},
+        {"name": "FluxFM Chillhop", "url": "https://streams.fluxfm.de/Chillhop/mp3-320/streams.fluxfm.de/"},
+        {"name": "Hotmixradio", "url": "https://streaming.hotmixradio.com/hotmix-lofi-en-mp3"},
+        {"name": "101.ru", "url": "https://pub0202.101.ru:8443/stream/pro/aac/64/358?"},
+        {"name": "Cafe", "url": "https://radio.loficafe.net/listen/chilling/radio.mp3"},
+        {"name": "radio.ru", "url": "https://live.lofiradio.ru/lofi_mp3_128"},
+        {"name": "Asura", "url": "https://a5.asurahosting.com:8150/radio.mp3"},
+        {"name": "ReyFM", "url": "https://listen.reyfm.de/lofi_64kbps.mp3"}
+    ],
+    "Ambient": [
+        {"name": "Art Sound", "url": "https://ambientartsound.skydesignltd.com:8000/radio.mp3?refresh=1652750904243"},
+        {"name": "House", "url": "http://79.120.12.130:8000/ambienthouse"},
+        {"name": "laut.fm", "url": "https://stream.laut.fm/ambient"},
+        {"name": "Ambient FM", "url": "https://ambient.fm/live/"},
+        {"name": "Dark", "url": "http://79.120.39.202:8000/darkambient"},
+        {"name": "Radio Art", "url": "http://air.radioart.com/fAmbient.mp3"},
+        {"name": "Dark m00", "url": "https://radio.m00.su:8000/darkambient.mp3"},
+        {"name": "Radioking", "url": "https://listen.radioking.com/radio/504205/stream/561655"},
+        {"name": "The Indie Beat", "url": "https://azura.theindiebeat.fm/listen/the_indie_beat_radio_-_ambient/radio.mp3"}
+    ],
+    "Calm": [
+        {"name": "Radio", "url": "https://streamer.radio.co/sb748f24ad/listen"},
+        {"name": "Zeno", "url": "https://stream.zeno.fm/yvcddifycietv"},
+        {"name": "Radio 287", "url": "http://streams.calmradio.com/api/287/128/stream/"},
+        {"name": "Classic FM", "url": "https://media-ice.musicradio.com/ClassicFMCalmMP3"},
+        {"name": "FM Vit Relax", "url": "https://radio.webicdp.com/listen/fmvfitradiorelax/radio.mp3"},
+        {"name": "Sonica", "url": "https://ibizasonica.streaming-pro.com:8014/sonicalm"},
+        {"name": "101.ru", "url": "https://pub0201.101.ru/stream/trust/mp3/128/24?"}
+    ]
+}
