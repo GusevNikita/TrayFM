@@ -16,6 +16,8 @@ import vlc
 from PIL import Image, ImageDraw
 from overlay import Overlay
 
+__version__ = "1.0.0"
+
 BASE_DIR = Path(__file__).parent
 CONFIG_PATH = BASE_DIR / "config.json"
 STATIONS_PATH = BASE_DIR / "stations.json"
@@ -397,14 +399,16 @@ def main():
     keyboard.add_hotkey('ctrl+shift+num /', next_sfx)
     def on_tray_help(icon, item):
         help_win = tk.Toplevel()
-        help_win.title("TrayFM Controls")
+        help_win.title(f"TrayFM v{__version__} Controls")
         help_win.geometry("380x280")
         help_win.resizable(False, False)
         help_win.attributes("-topmost", True)
 
         text = tk.Text(help_win, font=("Consolas", 10), bg="#1e1e1e", fg="#d4d4d4",
                        padx=12, pady=12, borderwidth=0, highlightthickness=0)
-        text.insert("1.0", """  HOTKEYS (hold Ctrl + Shift + Numpad)
+        text.insert("1.0", f"""  TrayFM v{__version__}
+
+  HOTKEYS (hold Ctrl + Shift + Numpad)
 
   Num8          Volume Up
   Num2          Volume Down
@@ -417,6 +421,8 @@ def main():
   Num/          Next SFX
   Num0          Restart App
   Right-click tray icon for more options.
+
+  github.com/GusevNikita/TrayFM
 """)
         text.config(state="disabled")
         text.pack(fill="both", expand=True)
@@ -481,7 +487,7 @@ def main():
     _tray_icon = pystray.Icon(
         "TrayFM",
         make_icon(),
-        "TrayFM",
+        f"TrayFM v{__version__}",
         pystray.Menu(
             pystray.MenuItem("Help", on_tray_help),
             pystray.Menu.SEPARATOR,
@@ -510,7 +516,7 @@ def main():
     if sfx_file and sfx_file != "OFF" and sfx_file not in sfx_volumes:
         sfx_volumes[sfx_file] = sfx_def_vol
 
-    print("TrayFM started (Ctrl+Shift+Num5 to play)", flush=True)
+    print(f"TrayFM v{__version__} started (Ctrl+Shift+Num5 to play)", flush=True)
 
     if resume:
         play_current()
