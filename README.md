@@ -76,6 +76,8 @@ You can create as many categories as you want, each with any number of stations.
 | Num5 | Play / Pause |
 | Num9 | Next Category |
 | Num7 | Previous Category |
+| Num* | Volume Mode (Radio/SFX) |
+| Num/ | Next SFX |
 | Num0 | Restart App |
 
 
@@ -188,6 +190,8 @@ You can create as many categories as you want, each with any number of stations.
 | Num5 | Играть / Пауза |
 | Num9 | След. категория |
 | Num7 | Пред. категория |
+| Num* | Режим громкости (Radio/SFX) |
+| Num/ | Следующий SFX |
 | Num0 | Перезапуск |
 
 ### Установка

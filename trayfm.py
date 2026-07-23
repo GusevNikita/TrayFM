@@ -413,6 +413,8 @@ def main():
   Num5          Play / Pause
   Num9          Next Category
   Num7          Previous Category
+  Num*          Volume Mode (Radio/SFX)
+  Num/          Next SFX
   Num0          Restart App
   Right-click tray icon for more options.
 """)
