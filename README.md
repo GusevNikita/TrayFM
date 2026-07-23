@@ -1,8 +1,5 @@
 # TrayFM
 
-TrayFM — интернет-радио плеер для Windows с оверлейными уведомлениями, треем и автозапуском.  
-TrayFM — internet radio player for Windows with overlay notifications, tray icon, and autorun.
-
 ---
 
 ## English
