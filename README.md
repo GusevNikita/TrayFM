@@ -7,6 +7,8 @@
 ### Description
 A lightweight internet radio player for Windows that runs in the system tray. Stations are defined in `stations.json` and app settings in `config.json` — you can add, remove, or rearrange any category or station without touching the code.
 
+![TrayFM Screenshot](screenshot.png)
+
 ### Features
 - Fully customizable stations via `stations.json`
 - Categories: create any genre or grouping (Lo-Fi, Ambient, Calm, News, Rock, etc.)
@@ -116,6 +118,8 @@ You can create as many categories as you want, each with any number of stations.
 
 ### Описание
 Лёгкий интернет-радио плеер для Windows, работающий в системном трее. Станции задаются в `stations.json`, настройки приложения — в `config.json`. Можно добавлять, удалять или переставлять категории и станции без изменения кода.
+
+![TrayFM Screenshot](screenshot.png)
 
 ### Возможности
 - Полностью настраиваемые станции через `stations.json`
