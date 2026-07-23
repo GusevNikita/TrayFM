@@ -72,7 +72,7 @@ You can create as many categories as you want, each with any number of stations.
 | Num9 | Next Category |
 | Num7 | Previous Category |
 | Num0 | Restart App |
-| Ctrl+Space | Play / Pause |
+
 
 ### Installation
 
@@ -177,7 +177,6 @@ You can create as many categories as you want, each with any number of stations.
 | Num9 | След. категория |
 | Num7 | Пред. категория |
 | Num0 | Перезапуск |
-| Ctrl+Space | Играть / Пауза |
 
 ### Установка
 

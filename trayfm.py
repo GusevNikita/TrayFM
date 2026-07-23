@@ -276,8 +276,6 @@ def main():
     keyboard.add_hotkey('ctrl+shift+num 9', next_category)
     keyboard.add_hotkey('ctrl+shift+num 7', prev_category)
     keyboard.add_hotkey('ctrl+shift+num 0', restart)
-    keyboard.add_hotkey('ctrl+space', toggle_play)
-
     def on_tray_help(icon, item):
         help_win = tk.Toplevel()
         help_win.title("TrayFM Controls")
@@ -297,8 +295,6 @@ def main():
   Num9          Next Category
   Num7          Previous Category
   Num0          Restart App
-  Ctrl+Space    Play / Pause
-
   Right-click tray icon for more options.
 """)
         text.config(state="disabled")
@@ -379,7 +375,7 @@ def main():
     )
     threading.Thread(target=_tray_icon.run, daemon=True).start()
 
-    print("TrayFM started (Ctrl+Shift+Num5 or Ctrl+Space to play)", flush=True)
+    print("TrayFM started (Ctrl+Shift+Num5 to play)", flush=True)
 
     if resume:
         play_current()
