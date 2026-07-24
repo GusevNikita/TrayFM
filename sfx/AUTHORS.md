@@ -17,3 +17,10 @@
 - **Source:** https://freesound.org/people/InspectorJ/sounds/401277/
 - **License:** Creative Commons Attribution 4.0
 - **Description:** Raw audio of moderate rainfall in Witley, England. Recorded with a H1 Zoom recorder on January 2nd, 2016.
+
+### bonfire.wav
+- **Author:** jgrzinich
+- **Date:** July 11th, 2017
+- **Source:** https://freesound.org/people/jgrzinich/sounds/397371/
+- **License:** Creative Commons Attribution NonCommercial 4.0
+- **Description:** A small bonfire in my yard (burning branches etc). Recorded with the built-in uni mics on a Tascam DR100 MKIII.
