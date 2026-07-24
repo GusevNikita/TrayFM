@@ -194,21 +194,35 @@ def main():
     def get_sfx_vol():
         return sfx_volumes.get(sfx_file, sfx_def_vol)
 
+    _sfx_active = False
+
     def start_sfx():
-        nonlocal _sfx_media, _sfx_media_path
+        nonlocal _sfx_media, _sfx_media_path, _sfx_active
         if sfx_file == "OFF" or not sfx_enabled or not os.path.isfile(sfx_path) or get_sfx_vol() == 0:
             return
+        _sfx_active = True
         vol = get_sfx_vol()
         if _sfx_media is None or _sfx_media_path != sfx_path:
             _sfx_media = sfx_instance.media_new(sfx_path)
-            _sfx_media.add_option(":loop")
+            _sfx_media.add_option("input-repeat=-1")
             sfx_player.set_media(_sfx_media)
             _sfx_media_path = sfx_path
         sfx_player.play()
         sfx_player.audio_set_volume(vol)
 
     def stop_sfx():
+        nonlocal _sfx_active
+        _sfx_active = False
+        sfx_player.stop()
         sfx_player.audio_set_volume(0)
+
+    _sfx_restart_event = threading.Event()
+
+    def _on_sfx_end(event):
+        if _sfx_active and sfx_enabled and sfx_file != "OFF" and get_sfx_vol() > 0:
+            _sfx_restart_event.set()
+
+    sfx_player.event_manager().event_attach(vlc.EventType.MediaPlayerEndReached, _on_sfx_end)
 
     def next_sfx():
         nonlocal sfx_file, sfx_path
@@ -524,7 +538,16 @@ def main():
 
     try:
         while True:
-            time.sleep(1)
+            _sfx_restart_event.wait(timeout=0.5)
+            if _sfx_restart_event.is_set():
+                _sfx_restart_event.clear()
+                if _sfx_active and sfx_enabled and sfx_file != "OFF" and get_sfx_vol() > 0:
+                    _sfx_media = sfx_instance.media_new(sfx_path)
+                    _sfx_media.add_option("input-repeat=-1")
+                    sfx_player.set_media(_sfx_media)
+                    _sfx_media_path = sfx_path
+                    sfx_player.play()
+                    sfx_player.audio_set_volume(get_sfx_vol())
     except KeyboardInterrupt:
         pass
     finally:
